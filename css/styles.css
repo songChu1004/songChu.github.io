@@ -36,7 +36,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     background-image: url('https://raw.githubusercontent.com/songChu1004/songChu.github.io/main/image/2.jpg');
-    padding-top: 40%; /* 상단 30px, 좌우 20px의 패딩 적용 */
+    padding-top: 50%; /* 상단 30px, 좌우 20px의 패딩 적용 */
     padding-left: 20%;
     padding-right: 20%;
     text-align: center;

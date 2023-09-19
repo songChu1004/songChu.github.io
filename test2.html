@@ -1,0 +1,33 @@
+<!-- page2.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page 2</title>
+    <style>
+        /* CSS 애니메이션 정의 */
+        .letter {
+            transform: scaleY(1); /* 초기에 열린 상태로 시작 */
+            transform-origin: top;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* 페이지 간 이동 버튼 스타일 */
+        .navigation-button {
+            cursor: pointer;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Page 2</h1>
+    <p>Click the letter to close it.</p>
+    <div class="letter" onclick="closeLetter(this)"><!-- 편지 내용 --></div>
+    <p><a class="navigation-button" href="page1.html">Go to Page 1</a></p>
+
+    <script>
+        function closeLetter(letter) {
+            letter.style.transform = "scaleY(0)"; // 편지를 닫힌 상태로 변경
+        }
+    </script>
+</body>
+</html>
