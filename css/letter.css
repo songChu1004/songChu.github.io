@@ -83,18 +83,13 @@ body {
 
 /* 카드 스타일 */
 .card {
-    position: absolute;
+    position: relative;
     width: 480px;
     height: 644.3076923076923px;
     margin: auto;
     transform-style: preserve-3d;
-    transform-origin: 50% 100%;
     transition: transform 1s ease-in-out;
-    top: 50%; /* 추가: 카드의 초기 위치를 중앙으로 조정 */
-    left: 50%;
-    transform: translate(-50%, -50%) rotateX(0deg); /* 추가: 초기 위치와 회전 설정 */
 }
-
 
 /* 카드 면 스타일 */
 .face {
@@ -158,30 +153,6 @@ body {
 }
 
 /* 초대장 버튼 스타일 */
-button {
-    font: normal 1.25em Karla, sans-serif;
-    padding: 15px 30px;
-    border-radius: 30px;
-    background: #ffce00;
-    color: #ff3c41;
-    border: none;
-    position: absolute;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    left: 50%;
-    top: 170px;
-    transform: translate(-50%, -50%);
-    transform-origin: 50% 50%;
-    z-index: 1;
-    cursor: pointer;
-    transition: background 0.3s ease-out, color 0.3s ease-out;
-}
-
-button.invert {
-    color: #ffce00;
-    background: #d73237;
-}
-
-/* 버튼 스타일 수정 */
 .open-button {
     font: normal 1.25em Karla, sans-serif;
     padding: 15px 30px;
@@ -200,7 +171,25 @@ button.invert {
     transition: background 0.3s ease-out, color 0.3s ease-out;
 }
 
-/* 편지봉투 열리면 카드가 중앙으로 이동 */
-.envelope.is-open .card {
-    transform: translate(0, 0);
+button.invert {
+    background: #d73237;
 }
+
+/* 버튼 스타일 수정 */
+.open-button {
+    font: normal 1.25em Karla, sans-serif;
+    padding: 15px 30px;
+    border-radius: 30px;
+    color: #ff3c41;
+    border: none;
+    position: absolute;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    left: 50%;
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
+    bottom: 30px; /* 아래 여백 조정 */
+    transform-origin: 50% 50%;
+    z-index: 1;
+    cursor: pointer;
+    transition: background 0.3s ease-out, color 0.3s ease-out;
+}
+

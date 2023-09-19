@@ -5,6 +5,10 @@ const mask = $('.mask');
 const invitationCard = $('.face.front');
 let isOpen = false;
 
+// 초기 상태에서 카드 숨김
+card.css('transform', 'translate(0, 100%)');
+
+// 봉투 클릭 이벤트 리스너
 button.on('click', function () {
     if (!isOpen) {
         openEnvelope();
@@ -28,53 +32,37 @@ function openEnvelope() {
     })
     .to('.card', 1, {
         y: '0%',
-        scaleY: 1,
-        ease: Circ.easeInOut,
-        onComplete: function() {
-            showImage();
-        }
-    })
+        ease: Circ.easeInOut
+    }, 'moveDown')
     .set('.mask', {
         overflow: 'visible',
-        onComplete: function() {
-            envelope.toggleClass('is-open');
+        onComplete: function () {
+            isOpen = true;
         }
     })
     .to('.mask', 1.3, {
         'clip-path': 'inset(0 0 0% 0)',
         ease: Circ.easeInOut
     }, 'moveDown')
-    .to('.open-button', 1, {
+    .to('.card', 1.3, {
+        y: '0%', // 카드를 위로 이동
+        ease: Circ.easeInOut
+    }, 'moveDown')
+    .to('button', 1, {
         y: '180px',
         ease: Circ.easeInOut,
         onComplete: toggleText
-    }, 'moveDown+=0.15')
-    .to('.card', 1, {
-        y: '0%',
-        scaleY: 1,
-        ease: Circ.easeInOut,
-    }, 'moveDown'); 
-
-    isOpen = true;
-    return tl;
+    }, 'moveDown+=0.15');
 }
 
 function closeEnvelope() {
     const tl = new TimelineMax();
     tl.to('.card', 1, {
-        rotationX: 0,
-        ease: Power4.easeInOut,
-        onComplete: function() {
-            card.css('transform', 'translate(-50%, -50%) rotateX(0deg)');
-        }
-    })
-    .to('.mask', 1.3, {
-        'clip-path': 'inset(0 0 50% 0)',
+        y: '100%', // 카드를 다시 아래로 이동
         ease: Circ.easeInOut
     }, 'moveUp')
-    .to('.card', 1.3, {
-        y: '100%',
-        scaleY: 1,
+    .to('.mask', 1.3, {
+        'clip-path': 'inset(0 0 50% 0)',
         ease: Circ.easeInOut
     }, 'moveUp')
     .to('.flap', 1, {
@@ -85,28 +73,19 @@ function closeEnvelope() {
         scale: 1,
         ease: Power4.easeInOut
     }, 'scaleUp')
-    .to('.open-button', 1, {
+    .to('button', 1, {
         y: '0px',
         ease: Circ.easeInOut,
-        onComplete: function() {
-            button.css('display', 'block');
+        onComplete: function () {
+            isOpen = false;
+            toggleText();
         }
     }, 'moveUp+=0.15')
-    .to('.card', 1, {
-        y: '0%',
-        scaleY: 1,
-        ease: Circ.easeInOut,
-    }, 'moveUp');
-
-    isOpen = false;
-    return tl;
+    .set('.flap', {
+        zIndex: 2
+    });
 }
 
 function toggleText() {
-    var text = isOpen ? 'Tell me more!' : 'See you there!';
-    button.toggleClass('invert', !isOpen).text(text);
-}
-
-function showImage() {
-    invitationCard.find('img').fadeIn();
+    button.toggleClass('invert', isOpen).text(isOpen ? "Close" : "Open"); // 버튼 텍스트 수정
 }
