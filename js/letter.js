@@ -3,6 +3,7 @@ const envelope = $('.envelope');
 const card = $('.card');
 const mask = $('.mask');
 const invitationCard = $('.face.front');
+const image3 = $('.open-button .image3'); // 이미지 요소 추가
 let isOpen = false;
 
 // 초기 상태에서 카드 숨김
@@ -12,6 +13,7 @@ card.css('transform', 'translate(0, 100%)');
 button.on('click', function () {
     if (!isOpen) {
         openEnvelope();
+        image3.css('display', 'none'); // 봉투를 열 때 이미지 숨김
     } else {
         closeEnvelope();
     }
@@ -49,10 +51,14 @@ function openEnvelope() {
         ease: Circ.easeInOut
     }, 'moveDown')
     .to('button', 1, {
-        y: '180px',
+        y: '-300px',
         ease: Circ.easeInOut,
-        onComplete: toggleText
-    }, 'moveDown+=0.15');
+    }, 'moveDown+=0.15')
+    .to(image3, 0.5, {
+        display: 'block', // 이미지를 열 때 다시 표시
+        ease: Power1.easeInOut,
+        delay: 0. // 이미지를 나타낼 딜레이 시간 조정
+    });
 }
 
 function closeEnvelope() {
@@ -84,8 +90,4 @@ function closeEnvelope() {
     .set('.flap', {
         zIndex: 2
     });
-}
-
-function toggleText() {
-    button.toggleClass('invert', isOpen).text(isOpen ? "Close" : "Open"); // 버튼 텍스트 수정
 }

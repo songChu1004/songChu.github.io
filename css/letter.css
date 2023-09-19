@@ -63,8 +63,9 @@ body {
     left: 0;
     top: 0;
     transform-origin: 50% 0%;
-    z-index: 2;
+    z-index: 1;
 }
+
 
 /* 봉투 마스크 스타일 */
 .mask {
@@ -89,6 +90,7 @@ body {
     margin: auto;
     transform-style: preserve-3d;
     transition: transform 1s ease-in-out;
+    z-index: 2;
 }
 
 /* 카드 면 스타일 */
@@ -175,11 +177,13 @@ button.invert {
     background: #d73237;
 }
 
-/* 버튼 스타일 수정 */
 .open-button {
     font: normal 1.25em Karla, sans-serif;
     padding: 15px 30px;
     border-radius: 30px;
+    /* background: #ffce00; */ /* 이 부분 주석 처리 */
+    background: url('https://github.com/songChu1004/songChu.github.io/blob/main/image/3.png?raw=true') no-repeat center; /* 이미지 경로 설정 */
+    background-size: cover; /* 이미지를 버튼에 맞게 조절 */
     color: #ff3c41;
     border: none;
     position: absolute;
@@ -189,7 +193,9 @@ button.invert {
     bottom: 30px; /* 아래 여백 조정 */
     transform-origin: 50% 50%;
     z-index: 1;
+    width: 100px; /* 버튼 크기 지정 */
+    height: 100px; /* 버튼 크기 지정 */
+    bottom: 100px;
     cursor: pointer;
     transition: background 0.3s ease-out, color 0.3s ease-out;
 }
-
