@@ -29,7 +29,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    background-color: #ffffff;
+    background-image: url('https://raw.githubusercontent.com/songChu1004/songChu.github.io/main/image/2.jpg');
     padding: 20px;
     text-align: center;
     opacity: 0;
