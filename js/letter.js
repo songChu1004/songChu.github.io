@@ -1,4 +1,3 @@
-// JavaScript
 const button = $('.open-button');
 const envelope = $('.envelope');
 const card = $('.card');
@@ -51,8 +50,8 @@ function openEnvelope() {
         onComplete: toggleText
     }, 'moveDown+=0.15')
     .to('.card', 1, {
-        y: '-20%',
-        scaleY: 0.8,
+        y: '0%',
+        scaleY: 1,
         ease: Circ.easeInOut,
     }, 'moveDown'); 
 
@@ -63,7 +62,7 @@ function openEnvelope() {
 function closeEnvelope() {
     const tl = new TimelineMax();
     tl.to('.card', 1, {
-        rotationX: -180,
+        rotationX: 0,
         ease: Power4.easeInOut,
         onComplete: function() {
             card.css('transform', 'translate(-50%, -50%) rotateX(0deg)');
