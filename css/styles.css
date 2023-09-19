@@ -34,6 +34,9 @@
     text-align: center;
     opacity: 0;
     transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
 }
 
 /* 나비 이미지 스타일 */
