@@ -1,32 +1,44 @@
-<!-- page2.html -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Page 2</title>
+    <title>페이지 2</title>
     <style>
-        /* CSS 애니메이션 정의 */
+        /* 초기 상태: 열린 종이 */
         .letter {
-            transform: scaleY(1); /* 초기에 열린 상태로 시작 */
-            transform-origin: top;
-            transition: transform 0.5s ease-in-out;
+            width: 200px;
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transform: rotateY(180deg); /* 초기에 열린 상태로 시작 */
         }
 
-        /* 페이지 간 이동 버튼 스타일 */
-        .navigation-button {
+        /* "닫기" 버튼 스타일 */
+        .close-button {
             cursor: pointer;
             color: blue;
         }
     </style>
 </head>
 <body>
-    <h1>Page 2</h1>
-    <p>Click the letter to close it.</p>
-    <div class="letter" onclick="closeLetter(this)"><!-- 편지 내용 --></div>
-    <p><a class="navigation-button" href="page1.html">Go to Page 1</a></p>
+    <div class="letter" onclick="closeLetter()">
+        <p>열린 종이</p>
+    </div>
+    <p class="close-button" onclick="goToPage1()">닫기</p>
 
     <script>
-        function closeLetter(letter) {
-            letter.style.transform = "scaleY(0)"; // 편지를 닫힌 상태로 변경
+        function closeLetter() {
+            // 열린 종이 닫기 애니메이션
+            const letter = document.querySelector('.letter');
+
+            letter.style.transform = 'rotateY(0deg)'; // 3D 회전으로 닫히는 효과
+        }
+
+        function goToPage1() {
+            // 첫 번째 페이지로 이동
+            window.location.href = 'test1.html';
         }
     </script>
 </body>
