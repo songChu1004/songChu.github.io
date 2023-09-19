@@ -88,6 +88,9 @@ function closeEnvelope() {
         }
     }, 'moveUp+=0.15')
     .set('.flap', {
-        zIndex: 2
+        zIndex: 1
+    })
+    .set('button', {
+        zIndex: 2 
     });
 }
