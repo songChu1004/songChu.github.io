@@ -1,0 +1,62 @@
+/* styles.css */
+
+@font-face {
+    font-family: 'Dovemayo_gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 초대장 초기 상태 */
+.invitation {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/image/1.gif'); /* 배경 이미지 경로 설정 */
+    background-size: cover; /* 배경 이미지를 화면에 꽉 차게 설정 */
+    background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
+    background-position: center center; /* 배경 이미지 중앙 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Dovemayo_gothic', sans-serif; /* Dovemayo_gothic 폰트 적용 */
+}
+
+/* 닫힌 편지 스타일 */
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+/* 나비 이미지 스타일 */
+.butterfly {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: flutter 2s infinite alternate ease-in-out;
+}
+
+@keyframes flutter {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+/* 열린 편지 스타일 */
+.invitation.open .letter {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
