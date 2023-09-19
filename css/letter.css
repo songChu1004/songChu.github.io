@@ -2,7 +2,7 @@
 
 /* 전체 페이지 스타일 */
 body {
-    background: radial-gradient(ellipse at center, #7db9e8 0%, #005da6 100%);
+    background-image: url('https://raw.githubusercontent.com/songChu1004/songChu.github.io/main/image/10.gif');
     user-select: none;
     perspective: 1000px;
     margin: 0;
@@ -84,8 +84,8 @@ body {
 /* 카드 스타일 */
 .card {
     position: relative;
-    width: 480px;
-    height: 644.3076923076923px;
+    width: 450px;
+    height: 600.3076923076923px;
     margin: auto;
     transform-style: preserve-3d;
     transition: transform 1s ease-in-out;
