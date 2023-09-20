@@ -69,6 +69,7 @@
 .content {
     max-width: 20%; /* content의 가로 너비를 조절합니다. */
     margin: 0 auto; /* 가운데 정렬을 위해 margin을 auto로 설정합니다. */
+    word-wrap: break-word;
 }
 
 .letter p {
