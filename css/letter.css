@@ -8,6 +8,8 @@ body {
     margin: 0;
     height: 100vh;
     overflow: hidden;
+    background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
+    background-size: 100% 100%; /* 이미지 원본 크기로 설정 */
 }
 
 /* 전체 요소 스타일 초기화 */
@@ -26,7 +28,7 @@ body {
 
 /* 봉투 스타일 */
 .envelope {
-    background: #ff3c41;
+    background: #B24040;
     width: 100%;
     height: 307.6923076923077px;
     position: relative;
@@ -42,7 +44,7 @@ body {
     right: 0;
     border-bottom: 0px solid transparent;
     border-top: 307.6923076923077px solid transparent;
-    border-right: 500px solid #ff3a3e;
+    border-right: 500px solid #B24A4A;
     z-index: 1;
 }
 
@@ -50,14 +52,14 @@ body {
     left: 0;
     border-bottom: 0px solid transparent;
     border-top: 307.6923076923077px solid transparent;
-    border-left: 500px solid #ff363b;
+    border-left: 500px solid #B24A4A;
     z-index: 1;
 }
 
 /* 봉투 덮개 스타일 */
 .flap {
     border-right: 250px solid transparent;
-    border-top: 153.84615384615384px solid #ff262a;
+    border-top: 153.84615384615384px solid #B22222;
     border-left: 250px solid transparent;
     position: absolute;
     left: 0;
@@ -92,88 +94,25 @@ body {
     z-index: 2;
 }
 
-/* 카드 면 스타일 */
-.face {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    background: transparent 50% 100% / auto 100% no-repeat;
-    box-shadow: 0 3px 6x rgba(0, 0, 0, 0.3);
-}
-
-/* 카드 앞면 스타일 */
-.front {
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/39132/poke-bg.gif);
-}
-
-.front h1 {
-    position: relative;
-    font: normal 3em/0.9 Slackey, sans-serif;
-    letter-spacing: -2px;
-    color: #ffce00;
-    padding: 30px 0 0;
-    margin: 0;
-    -webkit-font-smoothing: subpixel-antialiased;
-}
-
 .front img {
     width: 90%;
     display: block;
     margin: auto;
 }
 
-.front span {
-    display: block;
-    text-align: center;
-    margin-top: 40px;
-    padding: 0 20%;
-    margin: auto;
-    line-height: 1.3;
-}
-
-.front .extrude {
-    text-shadow: 0 1px 0 #ffcc00, 0 2px 0 #ffca00, 0 3px 0 #ffc700, 0 4px 0 #ffc500, 0 5px 0 #ffc300, 0 6px 1px rgba(0, 0, 0, 0.0980392), 0 0 5px rgba(0, 0, 0, 0.0980392), 0 1px 3px rgba(0, 0, 0, 0.298039), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.247059);
-}
-
 /* 카드 뒷면 스타일 */
 .face.back {
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/39132/poke-bg.jpg);
     color: #000;
     overflow: hidden;
 }
 
 .face.back img {
     position: absolute;
-    top: 60px;
+    top: 0px;
     display: inline-block;
     width: 90%;
     left: 50%;
     transform: translate(-50%, 0);
-}
-
-/* 초대장 버튼 스타일 */
-.open-button {
-    font: normal 1.25em Karla, sans-serif;
-    padding: 15px 30px;
-    border-radius: 30px;
-    background: #ffce00;
-    color: #ff3c41;
-    border: none;
-    position: absolute;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    left: 50%;
-    transform: translateX(-50%); /* 가로 중앙 정렬 */
-    bottom: 30px; /* 아래 여백 조정 */
-    transform-origin: 50% 50%;
-    z-index: 1;
-    cursor: pointer;
-    transition: background 0.3s ease-out, color 0.3s ease-out;
-}
-
-button.invert {
-    background: #d73237;
 }
 
 .open-button {
@@ -181,7 +120,7 @@ button.invert {
     padding: 15px 30px;
     border-radius: 30px;
     /* background: #ffce00; */ /* 이 부분 주석 처리 */
-    background: url('https://github.com/songChu1004/songChu.github.io/blob/main/image/3.png?raw=true') no-repeat center; /* 이미지 경로 설정 */
+    background: url('https://github.com/songChu1004/songChu.github.io/blob/main/image/3.png?raw=true') no-repeat center;
     background-size: cover; /* 이미지를 버튼에 맞게 조절 */
     color: #ff3c41;
     border: none;
