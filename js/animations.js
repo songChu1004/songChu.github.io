@@ -3,6 +3,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     var invitation = document.querySelector(".invitation");
 
+    
+
     // 1초 후에 초대장을 열기 위해 클래스 추가
     setTimeout(function () {
         invitation.classList.add("open");

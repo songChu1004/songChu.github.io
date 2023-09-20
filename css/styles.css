@@ -19,7 +19,6 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background-size: cover; /* 배경 이미지를 화면에 꽉 차게 설정 */
     background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
     background-position: center center; /* 배경 이미지 중앙 정렬 */
     display: flex;
@@ -36,28 +35,19 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     background-image: url('https://raw.githubusercontent.com/songChu1004/songChu.github.io/main/image/2.jpg');
-    padding-top: 50%; /* 상단 30px, 좌우 20px의 패딩 적용 */
-    padding-left: 20%;
-    padding-right: 20%;
+    background-position: center center; /* 배경 이미지 중앙 정렬 */
+    padding-top: 30%; 
+    padding-left: 30%;
+    padding-right: 30%;
     text-align: center;
     opacity: 0;
     transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     color: #8B4513; /* 글씨 색상 갈색으로 설정 */
     background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
-    background-size: 100% 100%; /* 이미지 원본 크기로 설정 */
-}
-
-/* 나비 이미지 스타일 */
-.butterfly {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    animation: flutter 2s infinite alternate ease-in-out;
+    word-wrap: break-word; /* 글자가 이미지 너비를 벗어나면 줄 바꿈 */
 }
 
 @keyframes flutter {
@@ -74,3 +64,24 @@
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
 }
+
+/* content 스타일 수정 */
+.content {
+    max-width: 20%; /* content의 가로 너비를 조절합니다. */
+    margin: 0 auto; /* 가운데 정렬을 위해 margin을 auto로 설정합니다. */
+}
+
+/* 반응형 스타일: 작은 화면 (모바일 등) */
+@media (max-width: 768px) {
+    .letter {
+        padding-top: 70%; /* 작은 화면에서는 상단 패딩을 더 작게 조정 */
+        padding-left: 10%; /* 작은 화면에서는 좌우 패딩을 더 작게 조정 */
+        padding-right: 10%;
+        word-wrap: break-word; /* 글자가 이미지 너비를 벗어나면 줄 바꿈 */
+    }
+    .content {
+        max-width: 60%; /* content의 가로 너비를 조절합니다. */
+        margin: 0 auto; /* 가운데 정렬을 위해 margin을 auto로 설정합니다. */
+    }
+}
+
