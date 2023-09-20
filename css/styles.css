@@ -71,6 +71,10 @@
     margin: 0 auto; /* 가운데 정렬을 위해 margin을 auto로 설정합니다. */
 }
 
+.letter p {
+    font-size: 18px; 
+}
+
 /* 반응형 스타일: 작은 화면 (모바일 등) */
 @media (max-width: 768px) {
     .letter {
