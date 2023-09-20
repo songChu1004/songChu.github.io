@@ -19,10 +19,8 @@ button.on('click', function () {
 
 // 카드 클릭 이벤트 리스너
 card.on('click', function () {
-    if (!isOpen) {
-        openEnvelope();
-    } else {
-        closeEnvelope();
+    if (isOpen) {
+        flipCard();
     }
 });
 
@@ -55,7 +53,10 @@ function openEnvelope() {
     }, 'moveDown')
     .to('.card', 1.3, {
         y: '0%', // 카드를 위로 이동
-        ease: Circ.easeInOut
+        ease: Circ.easeInOut,
+        onComplete: function () {
+            toggleCardFaces(); // 카드가 열릴 때 앞면과 뒷면을 보여주거나 숨기는 함수 호출
+        }
     }, 'moveDown')
     .to('button', 1, {
         y: '-300px',
@@ -63,14 +64,17 @@ function openEnvelope() {
     }, 'moveDown+=0.15')
     .set('card',{
         zIndex: 2
-    })
+    });
 }
 
 function closeEnvelope() {
     const tl = new TimelineMax();
     tl.to('.card', 1, {
-        y: '100%', // 카드를 다시 아래로 이동
-        ease: Circ.easeInOut
+        y: '100%', // 카드를 아래로 이동
+        ease: Circ.easeInOut,
+        onComplete: function () {
+            toggleCardFaces(); // 카드가 닫힐 때 앞면과 뒷면을 보여주거나 숨기는 함수 호출
+        }
     }, 'moveUp')
     .to('.mask', 1.3, {
         'clip-path': 'inset(0 0 50% 0)',
@@ -89,7 +93,6 @@ function closeEnvelope() {
         ease: Circ.easeInOut,
         onComplete: function () {
             isOpen = false;
-            toggleText();
         }
     }, 'moveUp+=0.15')
     .set('.flap', {
@@ -98,4 +101,26 @@ function closeEnvelope() {
     .set('button', {
         zIndex: 2 
     });
+}
+
+function flipCard() {
+    const tl = new TimelineMax();
+    tl.to('.card', 1, {
+        rotationY: isOpen ? 0 : 180, // 카드를 뒤집음
+        ease: Power1.easeInOut,
+        onComplete: function () {
+            isOpen = !isOpen; // 카드 상태를 업데이트
+            toggleCardFaces(); // 카드를 뒤집을 때 앞면과 뒷면을 보여주거나 숨기는 함수 호출
+        }
+    });
+}
+
+function toggleCardFaces() {
+    if (isOpen) {
+        $('.face.front').css('display', 'none');
+        $('.face.back').css('display', 'block');
+    } else {
+        $('.face.front').css('display', 'block');
+        $('.face.back').css('display', 'none');
+    }
 }

@@ -90,6 +90,7 @@ body {
     height: 600.3076923076923px;
     margin: auto;
     transform-style: preserve-3d;
+    backface-visibility: hidden; /* 추가: 뒷면 숨기기 */
     transition: transform 1s ease-in-out;
     z-index: 2;
 }
